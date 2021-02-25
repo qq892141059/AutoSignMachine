@@ -189,8 +189,8 @@ let scheduler = {
         }
         let { taskJson, queues, will_queues } = scheduler
 
-        let will_tasks = will_queues.filter(task => task.taskName in tasks && (!selectedTasks.length || selectedTasks.length && selectedTasks.indexOf(task.taskName) !== -1))
-
+        let will_tasks = taskJson.queues
+        
         console.log(`获取总任务数${taskJson.queues.length}，已完成任务数${queues.filter(q => q.taskState === 1).length}，截至当前可执行任务数${will_tasks.length}`)
 
         if (will_tasks.length) {
