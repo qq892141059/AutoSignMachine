@@ -76,16 +76,6 @@ var start = async (params) => {
     await require('./dailyTTliulan').doTask(request, options)
   }, taskOption)
 
-  // 首页-签到有礼-免费拿-看视频夺宝
-  // 易出现本次操作需要进行验证，暂时注释
-  // await scheduler.regTask('dailyVideoFreeGoods', async (request) => {
-  //   await require('./dailyVideoFreeGoods').doTask(request, options)
-  // }, {
-  //   isCircle: true,
-  //   startTime: 10 * 3600,
-  //   intervalTime: 4 * 3600
-  // })
-
   // 首页-签到有礼-免费抽-抓OPPO手机
   await scheduler.regTask('dailyGrabdollPage', async (request) => {
     await require('./dailyGrabdollPage').doTask(request, options)
@@ -96,48 +86,14 @@ var start = async (params) => {
     await require('./jflottery').timesDraw(request, options)
   }, taskOption)
 
-  // 首页-签到有礼-免费抽-拿苹果iPad Pro(摇一摇)
-  await scheduler.regTask('dailyYYY', async (request) => {
-    await require('./dailyYYY').doTask(request, options)
-  }, taskOption)
-
-  // 首页-签到有礼-免费抽-华为mate40pro(刮刮乐)
-  await scheduler.regTask('dailyVideoScratchcard', async (request) => {
-    await require('./dailyVideoScratchcard').doTask(request, options)
-  }, taskOption)
-
-  // 首页-签到有礼-免费抽-赢三星Galaxy Z(试试手气)
-  await scheduler.regTask('dailyCheapStorePage', async (request) => {
-    await require('./dailyCheapStorePage').doTask(request, options)
-  }, {
-    isCircle: true,
-    intervalTime: 4 * 3600,
-    ...taskOption
-  })
-
   // 首页-签到有礼-免费抽-拆华为Pad(去抽奖)
   await scheduler.regTask('dailyLKMH', async (request) => {
     await require('./dailyLKMH').doTask(request, options)
   }, taskOption)
 
-  // 首页-签到有礼-免费抽-拿iPhone12(摇一摇)
-  await scheduler.regTask('dailyYYQ', async (request) => {
-    await require('./dailyYYQ').doTask(request, options)
-  }, taskOption)
-
-  // 首页-签到有礼-免费抽-赢Apple Watch(去抽奖)
-  await scheduler.regTask('dailyTurntablePage', async (request) => {
-    await require('./dailyTurntablePage').doTask(request, options)
-  }, taskOption)
-
   // 首页-签到有礼-赚更多福利-看视频奖励5积分
   await scheduler.regTask('dailyVideo', async (request) => {
     await require('./dailyVideo').doTask(request, options)
-  }, taskOption)
-
-  // 首页-签到有礼-赚更多福利-天天抽好礼
-  await scheduler.regTask('dailylottery', async (request) => {
-    await require('./dailylottery').doTask(request, options)
   }, taskOption)
 
   // 首页-游戏-娱乐中心-每日打卡
@@ -164,11 +120,6 @@ var start = async (params) => {
     startTime: 9 * 3600
   })
 
-  // await require('./integral').getflDetail(request, options)
-  // await require('./integral').getTxDetail(request, options)
-  // await require('./integral').getDxDetail(request, options)
-  // await require('./integral').getCoins(request, options)
-
   // 每日评论积分
   await scheduler.regTask('dailycomment', async (request) => {
     await require('./commentSystem').commentTask(request, options).catch(console.log)
@@ -180,39 +131,6 @@ var start = async (params) => {
   }, {
     ...taskOption,
     startTime: 20 * 3600
-  })
-
-  // 首页-签到有礼-居家娱乐馆
-  await scheduler.regTask('gameYearBox', async (request) => {
-    await require('./gameYearBox').doTask(request, options)
-  }, {
-    ...taskOption,
-    startTime: 20 * 3600
-  })
-
-  // 首页-牛气-秒杀抢兑
-  await scheduler.regTask('NiujieSpikePrize', async (request) => {
-    await require('./Niujie').spikePrize(request, options)
-  }, {
-    ...taskOption,
-    startTime: 9.6 * 3600,
-    ignoreRelay: true
-  })
-
-  // 首页-牛气-转盘抽奖
-  await scheduler.regTask('NiujieTask', async (request) => {
-    await require('./Niujie').doTask(request, options)
-  }, taskOption)
-
-
-  // 首页-牛气-场馆领牛气
-  await scheduler.regTask('NiujieReceiveCalf', async (request) => {
-    await require('./Niujie').receiveCalf(request, options)
-  }, {
-    isCircle: true,
-    intervalTime: 1 * 3600,
-    startTime: 1,
-    ...taskOption
   })
 }
 module.exports = {
