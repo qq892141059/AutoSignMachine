@@ -1,11 +1,12 @@
 name: 联通
 
 on:
-  workflow_dispatch: # 手动触发
-  schedule: # 计划任务触发
-    - cron: '0 21 * * *'
-   # - cron: '30 * * * *'
-
+  push:
+    branches: main
+  gollum:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 23 * * *'
 jobs:
   daily-task:
     if: github.event.repository.owner.id == github.event.sender.id
