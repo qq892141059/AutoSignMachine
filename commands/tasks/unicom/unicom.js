@@ -81,11 +81,6 @@ var start = async (params) => {
     await require('./dailyGrabdollPage').doTask(request, options)
   }, taskOption)
 
-  // 首页-签到有礼-免费抽-拿666积分-豪礼大派送抽奖
-  await scheduler.regTask('jflottery', async (request) => {
-    await require('./jflottery').timesDraw(request, options)
-  }, taskOption)
-
   // 首页-签到有礼-免费抽-拆华为Pad(去抽奖)
   await scheduler.regTask('dailyLKMH', async (request) => {
     await require('./dailyLKMH').doTask(request, options)
